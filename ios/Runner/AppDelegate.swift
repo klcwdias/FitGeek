@@ -1,7 +1,7 @@
 import UIKit
 import Flutter
 import Firebase
-import permission_handler
+
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {

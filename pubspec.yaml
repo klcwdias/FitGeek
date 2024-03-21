@@ -1,4 +1,4 @@
-name: gym_ai
+name: FitGeek
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -39,9 +39,12 @@ dependencies:
   cloud_firestore: any
   firebase_auth: any
   camera: any
-  image_picker: any
-  tflite_flutter: any
+  image_picker: ^1.0.7
   permission_handler: any
+  tflite_flutter: ^0.10.4
+  image: any
+  path_provider: ^2.1.2
+  http: any
 
 dev_dependencies:
   flutter_test:

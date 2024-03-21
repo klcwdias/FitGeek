@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:gym_ai/pages/Signin_Signup/signinpage.dart';
+
+import 'Signin_Signup/signinpage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "gym_ai" "\0"
+            VALUE "FileDescription", "fit_geek" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "gym_ai" "\0"
+            VALUE "InternalName", "fit_geek" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "gym_ai.exe" "\0"
-            VALUE "ProductName", "gym_ai" "\0"
+            VALUE "OriginalFilename", "fit_geek.exe" "\0"
+            VALUE "ProductName", "fit_geek" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
