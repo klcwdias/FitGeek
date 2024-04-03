@@ -1,6 +1,6 @@
 {
-    "name": "fit_geek",
-    "short_name": "fit_geek",
+    "name": "fitgeek",
+    "short_name": "fitgeek",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

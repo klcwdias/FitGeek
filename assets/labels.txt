@@ -1,0 +1,4 @@
+0 underweight
+1 normal
+2 overweight
+3 obesity

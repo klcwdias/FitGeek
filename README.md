@@ -1,4 +1,4 @@
-# fit_geek
+# fitgeek
 
 A new Flutter project.
 

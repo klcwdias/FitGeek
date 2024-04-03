@@ -1,5 +1,5 @@
-# Uncomment the next line to define a global platform for your project
-platform :ios, '12.0'
+# Uncomment this line to define a global platform for your project
+# platform :ios, '12.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -32,26 +32,14 @@ target 'Runner' do
   use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
-  pod 'Firebase'
- 
   target 'RunnerTests' do
     inherit! :search_paths
   end
 end
 
-# Combine the two post_install blocks into one
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
-
-    target.build_configurations.each do |config|
-      config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
-        '$(inherited)',
-        'PERMISSION_CAMERA=1',      # Define your camera permission
-        'PERMISSION_PHOTOLIBRARY=1' # Define your photo library (gallery) permission
-      ]
-    end
   end
 end
-
-pod 'TensorFlowLiteC','2.12.0'
+pod 'TensorFlowLiteC', '2.2.0'

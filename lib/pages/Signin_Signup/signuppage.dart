@@ -33,11 +33,6 @@ class _SignUpPageState extends State<SignUpPage> {
           password: _passwordController.text,
         );
 
-        // Store additional user details in Firestore
-        await _firestore.collection('users').doc(userCredential.user!.uid).set({
-          'username': _usernameController.text,
-        });
-
         // Navigate to home page or any other page after successful signup
         Navigator.pushReplacementNamed(context, '/signin');
       } else {
@@ -87,7 +82,7 @@ class _SignUpPageState extends State<SignUpPage> {
               height: deviceHeight * 0.2,
             ),
             Image.asset(
-              'lib/assets/splash_screen.png', // Replace with your image asset
+              'assets/splash_screen.png', // Replace with your image asset
               width: deviceWidth * 0.6,
               height: deviceHeight * 0.3,
               // You can adjust the width and height based on your preference

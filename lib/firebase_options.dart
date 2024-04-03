@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,20 +43,39 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyANmW5khaiDcXkQNAaK06uHvDVr84ept5U',
+    appId: '1:694480458294:web:062528d64783291938be97',
+    messagingSenderId: '694480458294',
+    projectId: 'fitgeek-63be2',
+    authDomain: 'fitgeek-63be2.firebaseapp.com',
+    storageBucket: 'fitgeek-63be2.appspot.com',
+    measurementId: 'G-29SFRP21Y5',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC1fGYZ14woboVWfo85XJgCngp_4nilvng',
-    appId: '1:867446599585:android:07fe264466a5df776be5e0',
-    messagingSenderId: '867446599585',
-    projectId: 'fit-geek-fdf2f',
-    storageBucket: 'fit-geek-fdf2f.appspot.com',
+    apiKey: 'AIzaSyDOHTfM3oIWIIbjCKi_4BciY1aZjH48s34',
+    appId: '1:694480458294:android:0b8e3071030ffa9138be97',
+    messagingSenderId: '694480458294',
+    projectId: 'fitgeek-63be2',
+    storageBucket: 'fitgeek-63be2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCq1lqoIHoOb2UPJPtxyhrkDGeXl4p76QM',
-    appId: '1:867446599585:ios:fa5e18aaa91c13f06be5e0',
-    messagingSenderId: '867446599585',
-    projectId: 'fit-geek-fdf2f',
-    storageBucket: 'fit-geek-fdf2f.appspot.com',
-    iosBundleId: 'com.example.gymAi',
+    apiKey: 'AIzaSyCt3HYMW819g0h5eXeMdtumz8nkhGGeVEk',
+    appId: '1:694480458294:ios:64d7a6f3f55b570e38be97',
+    messagingSenderId: '694480458294',
+    projectId: 'fitgeek-63be2',
+    storageBucket: 'fitgeek-63be2.appspot.com',
+    iosBundleId: 'com.example.fitgeek',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCt3HYMW819g0h5eXeMdtumz8nkhGGeVEk',
+    appId: '1:694480458294:ios:9b61934df93651b238be97',
+    messagingSenderId: '694480458294',
+    projectId: 'fitgeek-63be2',
+    storageBucket: 'fitgeek-63be2.appspot.com',
+    iosBundleId: 'com.example.fitgeek.RunnerTests',
   );
 }

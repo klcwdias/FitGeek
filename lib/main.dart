@@ -1,11 +1,18 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'pages/Signin_Signup/signinpage.dart';
 import 'pages/Signin_Signup/signuppage.dart';
+import 'pages/assistant.dart';
+import 'pages/diet.dart';
 import 'pages/homepage.dart';
+import 'pages/profile_page.dart';
 import 'pages/splashscreen.dart';
+import 'pages/timer.dart';
+import 'pages/workout.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +64,12 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => const SplashScreen(),
         '/home': (context) => const HomePage(),
         '/signin': (context) => const SignInPage(),
-        '/signup': (context) => const SignUpPage(), // Add the home page route
+        '/signup': (context) => const SignUpPage(),
+        '/workout': (context) => const Workout(),
+        '/timer': (context) => const CustomTimer(),
+        '/diet': (context) => const Diet(),
+        '/assistant': (context) => const ChatGptPage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }

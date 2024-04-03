@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -14,18 +15,38 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
   bool _isLoading = false;
-
   Future<void> _signIn() async {
     try {
       setState(() {
         _isLoading = true;
       });
 
-      await _auth.signInWithEmailAndPassword(
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: _usernameController.text,
         password: _passwordController.text,
       );
 
+      String email = userCredential.user?.email ?? '';
+      String uid = userCredential.user?.uid ?? '';
+
+      print('Email: $email, UID: $uid'); // Debugging line
+
+      // Create a reference to the Firestore database
+      final usersCollection = FirebaseFirestore.instance.collection('users');
+
+      // Check if the user already exists in the Firestore database
+      DocumentSnapshot userDoc = await usersCollection.doc(uid).get();
+
+      if (!userDoc.exists) {
+        // If the user doesn't exist, create a new document with UID and username
+        print('Creating new document in Firestore'); // Debugging line
+        await usersCollection.doc(uid).set({
+          'uid': uid,
+          'email': email,
+        });
+      }
+
+      print('Navigation to home page'); // Debugging line
       // Navigate to home page or any other page after successful sign-in
       Navigator.pushReplacementNamed(context, '/home');
     } on FirebaseAuthException catch (e) {
@@ -44,7 +65,10 @@ class _SignInPageState extends State<SignInPage> {
           duration: const Duration(seconds: 3),
         ),
       );
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('Error during sign-in: $e'); // Debugging line
+      print('Stack trace: $stackTrace'); // Debugging line
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error: $e'),
@@ -72,7 +96,7 @@ class _SignInPageState extends State<SignInPage> {
               height: deviceHeight * 0.2,
             ),
             Image.asset(
-              'lib/assets/splash_screen.png', // Replace with your image asset
+              'assets/splash_screen.png', // Replace with your image asset
               width: deviceWidth * 0.6,
               height: deviceHeight * 0.3,
             ),
